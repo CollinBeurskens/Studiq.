@@ -8,3 +8,6 @@ Studiq is een online leerplatform speciaal voor leerlingen van Trevianum. Het is
 
 - Ontwikkelaar : [@CollinBeurskens](https://www.github.com/CollinBeurskens)
 
+
+## Screenshots
+![Zoeken](https://raw.githubusercontent.com/CollinBeurskens/Studiq./refs/heads/main/zoekfunctie.png)
