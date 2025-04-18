@@ -1,0 +1,12 @@
+{
+  "1": {
+    "title": "Inleiding tot Algebra",
+    "subtitle": "Leer de basis van algebraische vergelijkingen.",
+    "body": "<p>Algebra gebruikt symbolen om getallen te vertegenwoordigen. Een lineaire vergelijking heeft de vorm \\( ax + b = c \\).</p><h3>Quadratische Formule</h3><p>Voor een vergelijking \\( ax^2 + bx + c = 0 \\), gebruik de formule:</p><p>\\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\]</p><p>Voorbeeld: Los \\( x^2 - 3x + 2 = 0 \\) op.</p><ul><li>Discriminant: \\( \\Delta = b^2 - 4ac = (-3)^2 - 4 \\cdot 1 \\cdot 2 = 1 \\).</li><li>Oplossingen: \\( x = \\frac{3 \\pm \\sqrt{1}}{2} \\).</li></ul>"
+  },
+  "2": {
+    "title": "Inleiding tot Calculus",
+    "subtitle": "Begrijp afgeleiden en integralen.",
+    "body": "<p>Calculus behandelt verandering. De afgeleide van \\( f(x) = x^2 \\) is \\( f'(x) = 2x \\).</p><h3>Integralen</h3><p>De bepaalde integraal geeft de oppervlakte onder een kromme:</p><p>\\[ \\int_0^1 x^2 \\, dx = \\left[ \\frac{x^3}{3} \\right]_0^1 = \\frac{1}{3} \\]</p><p>Sommaties worden vaak gebruikt, zoals:</p><p>\\[ \\sum_{i=1}^n i = \\frac{n(n+1)}{2} \\]</p><p>Deze formules zijn essentieel voor verdere studies.</p>"
+  }
+}
