@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stof - Online leerplatform voor Trevianum</title>
+    <!-- Font voor het logo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- MathJax voor wiskundige formules -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Reset en basis stijlen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Host Grotesk', sans-serif;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header stijlen */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+        }
+        
+        .logo {
+            font-family: 'Host Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero sectie */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #ffffff;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+        
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+        
+        /* Content sectie */
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #ffffff;
+        }
+        
+        .content p {
+            font-size: 18px;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+        }
+        
+        .content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 20px 0 10px;
+            color: #1d1d1f;
+        }
+        
+        .content ul {
+            list-style: disc;
+            margin: 10px 0 20px 20px;
+        }
+        
+        .content li {
+            font-size: 18px;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+        
+        .content b {
+            font-weight: 600;
+        }
+        
+        /* Error message style */
+        .error-message {
+            text-align: center;
+            padding: 50px 20px;
+            color: #ff3333;
+            font-size: 24px;
+        }
+        
+        /* Responsief ontwerp */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero h2 {
+                font-size: 22px;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Studiq.</a>
+        </nav>
+    </header>
+
+    <section class="content" id="content-body">
+        <br>
+        <h1>Zoek samenvattingen</h1>
+        <br>
+        <input type="text" id="search" placeholder="Zoek een onderwerp..." style="padding: 14px 20px; width: 100%; font-size: 16px; margin-bottom: 24px; border-radius: 9999px; border: 1px solid #ddd; background-color: #f9f9f9; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;">
+    
+        <div id="results">
+        </div>
+    </section>
+    
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('data/data.json');
+                if (!response.ok) throw new Error('Bestand niet gevonden');
+                return await response.json();
+            } catch (error) {
+                document.getElementById('results').innerHTML = `<div class="error-message">${error.message}</div>`;
+            }
+        }
+    
+        function renderButton(id, opdracht) {
+            return `
+                <a href="idsearch.html?id=${id}" style="
+                    display: block;
+                    padding: 15px 20px;
+                    margin-bottom: 10px;
+                    background-color: #0066cc;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 8px;
+                    font-size: 18px;
+                    font-weight: 500;
+                    transition: background-color 0.2s;
+                " onmouseover="this.style.backgroundColor='#005bb5'" onmouseout="this.style.backgroundColor='#0066cc'">
+                    ${opdracht.title}
+                </a>
+            `;
+        }
+    
+        document.getElementById('search').addEventListener('input', async function () {
+            const query = this.value.toLowerCase();
+            const data = await fetchData();
+
+    
+            const results = Object.entries(data).filter(([id, opdracht]) =>
+                opdracht.title.toLowerCase().includes(query) ||
+                opdracht.subtitle.toLowerCase().includes(query)
+            );
+    
+            if (results.length === 0) {
+                document.getElementById('results').innerHTML = `<p>Geen opdrachten gevonden.</p>`;
+            } else {
+                document.getElementById('results').innerHTML = results
+                    .map(([id, opdracht]) => renderButton(id, opdracht))
+                    .join('');
+            }
+        });
+    </script>
+</body>
+</html>    
