@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stof - Online leerplatform voor Trevianum</title>
+    <!-- Font voor het logo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- MathJax voor wiskundige formules -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Reset en basis stijlen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header stijlen */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+        }
+        
+        .logo {
+            font-family: 'Host Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero sectie */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #ffffff;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+        
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+        
+        /* Content sectie */
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #ffffff;
+        }
+        
+        .content p {
+            font-size: 18px;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+        }
+        
+        .content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 20px 0 10px;
+            color: #1d1d1f;
+        }
+        
+        .content ul {
+            list-style: disc;
+            margin: 10px 0 20px 20px;
+        }
+        
+        .content li {
+            font-size: 18px;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+        
+        .content b {
+            font-weight: 600;
+        }
+        
+        /* Error message style */
+        .error-message {
+            text-align: center;
+            padding: 50px 20px;
+            color: #ff3333;
+            font-size: 24px;
+        }
+        
+        /* Responsief ontwerp */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero h2 {
+                font-size: 22px;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Studiq.</a>
+            <button class="mobile-menu-button">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero" id="hero-section">
+        <h1 id="hero-title">FAQ</h1>
+        <h2 id="hero-subtitle">Veelgestelde vragen</h2>
+    </section>
+
+    <section class="content" id="content-body">
+        <br>
+        <h1>Wat is Studiq?</h1>
+        <p>Studiq is een online leerplatform speciaal ontwikkeld voor leerlingen van Trevianum. Het helpt je met leren, toetsen voorbereiden en het beter begrijpen van de lesstof.</p>
+        <br>
+        <h1>Wie heeft Studiq gemaakt?</h1>
+        <p>Studiq is gemaakt door <a href="https://www.github.com/CollinBeurskens">Collin Beurskens</a></p>
+        <br>
+        <h1>Kan ik zelf ook bijdragen aan Studiq?</h1>
+        <p>Misschien wel! Neem contact op via het platform als je iets wilt bijdragen of feedback hebt.</p>
+        <br>
+        <h1>Wat als ik iets niet kan vinden op Studiq?</h1>
+        <p>Laat het weten via het <a href="contact.html">contactformulier</a> of een melding op de site. Dan wordt er gekeken of het toegevoegd kan worden.</p>
+        <br>
+        <h1>Is Studiq ook beschikbaar voor andere scholen?</h1>
+        <p>Op dit moment is Studiq alleen bedoeld voor Trevianum</p>
+        <br>
+        <h1>Hoe vaak wordt Studiq geüpdatet?</h1>
+        <p>Studiq wordt regelmatig bijgewerkt met nieuwe samenvattingen en lesmateriaal, afhankelijk van de behoeften van de leerlingen.</p>
+        <br>
+    </section>
+
+</body>
+</html>
